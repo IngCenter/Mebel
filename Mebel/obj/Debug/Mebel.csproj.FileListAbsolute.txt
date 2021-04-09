@@ -1,0 +1,10 @@
+C:\Users\beavi\source\repos\Mebel\Mebel\bin\Debug\Mebel.exe.config
+C:\Users\beavi\source\repos\Mebel\Mebel\bin\Debug\Mebel.exe
+C:\Users\beavi\source\repos\Mebel\Mebel\bin\Debug\Mebel.pdb
+C:\Users\beavi\source\repos\Mebel\Mebel\obj\Debug\Mebel.csprojAssemblyReference.cache
+C:\Users\beavi\source\repos\Mebel\Mebel\obj\Debug\Mebel.Form1.resources
+C:\Users\beavi\source\repos\Mebel\Mebel\obj\Debug\Mebel.Properties.Resources.resources
+C:\Users\beavi\source\repos\Mebel\Mebel\obj\Debug\Mebel.csproj.GenerateResource.cache
+C:\Users\beavi\source\repos\Mebel\Mebel\obj\Debug\Mebel.csproj.CoreCompileInputs.cache
+C:\Users\beavi\source\repos\Mebel\Mebel\obj\Debug\Mebel.exe
+C:\Users\beavi\source\repos\Mebel\Mebel\obj\Debug\Mebel.pdb
