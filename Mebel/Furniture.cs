@@ -11,7 +11,6 @@ namespace Mebel
         public int Height;
         public int Price;
         public Image Picture;
-
     }
 
     class Sofa : Furniture
@@ -20,14 +19,6 @@ namespace Mebel
         /// Может ли раздвигаться
         /// </summary>
         public bool CanRazdvigatsya;
-        public Sofa(string Name) : this(Name, 0)
-        {
-        }
-        public Sofa(string Name, int Mass)
-        {
-            this.Name = Name;
-            this.Mass = Mass;
-        }
     }
 
     class Chair : Furniture
