@@ -12,59 +12,43 @@ namespace Mebel
 {
     public partial class Form1 : Form
     {
-        List<Furniture> furnitureList = new List<Furniture>();
-        List<TumboRak> complectList = new List<TumboRak>();
 
         public Form1()
         {
             InitializeComponent();
 
+
+
             Rakovina rak1 = new Rakovina { Name = "Раковина белая 50см", Price = 1000, Color = "Белый", Width = 50 };
             Tumba tum1 = new Tumba { Name = "Тумба белая 50см", Price = 1000, Color = "Белый", Width = 50 };
-            complectList.Add(new TumboRak { rakovina = rak1, tumba = tum1 });
+            Kran kran1 = new Kran { Name = "Кран кранистый длинный с водой", Price = 2500 };
+            List<Furniture> mebel1 = new List<Furniture>() { rak1, tum1, kran1 };
+            BathComplect complect1 = new BathComplect { Name = "Комплект для ванной 1", rakovina = rak1, kran = kran1, tumba = tum1, furnitures = mebel1 };
 
-            furnitureList.Add(new Sofa { Name = "Лучший диван", Price = 20000, Mass = 30, CanRazdvigatsya = true });
-            furnitureList.Add(new Chair { Name = "Лучший стул", Price = 3000, Mass = 4 });
-            furnitureList.Add(new Chair { Name = "Нелучший стул", Price = 1000, Mass = 4 });
-            furnitureList.Add(new Chair { Name = "Стул с торчащими гвоздями", Price = 300, Mass = 4 });
-            furnitureList.Add(new Rakovina { Name = "Раковина белая 50см", Price = 1000, Color = "Белый", Width=50 });
-            furnitureList.Add(new Tumba { Name = "Тумба красная 50см", Price = 1000, Color = "Красный", CountBoxes = 4, Width = 50 });
-            furnitureList.Add(new Tumba { Name = "Тумба белая 70см", Price = 1000, Color = "Белый", CountBoxes = 2, Width = 70 });
+            Shkaf shkaf1 = new Shkaf { Name = "Шкаф кухонный 180 см", Price = 12000, CollectionName = "Элитное" };
+            Plita plita1 = new Plita { Name = "Плита электрическая дровяная", Price = 20000, CollectionName = "Элитное" };
+            List<Furniture> mebel2 = new List<Furniture>() { shkaf1, plita1 };
+            KitchenComplect complect2 = new KitchenComplect { Name = "Комплект для кухни 1", CollectionName = "Элитное", plita = plita1, shkaf = shkaf1, furnitures = mebel2 };
 
-            int sum = 0;
-            foreach (Furniture sofa1 in furnitureList)
+            Shkaf shkaf2 = new Shkaf { Name = "Шкаф кухонный 180 см", Price = 12000, CollectionName = "Элитное" };
+            Plita plita2 = new Plita { Name = "Плита электрическая дровяная", Price = 20000, CollectionName = "Элитное" };
+            Vutyazhka vutyazhka2 = new Vutyazhka { Name = "Вытяжка существует", Price = 2000, CollectionName = "Элитное" };
+            List<Furniture> mebel3 = new List<Furniture>() { shkaf2, plita2, vutyazhka2 };
+            KitchenComplect complect3 = new KitchenComplect { Name = "Комплект для кухни 1", CollectionName = "Элитное", plita = plita2, shkaf = shkaf2, vutyazhka = vutyazhka2, furnitures = mebel3 };
+
+            List<Complect> complects = new List<Complect>() { complect1, complect2, complect3 };
+
+            foreach (Complect comp in complects)
             {
-                textBox1.AppendText(sofa1.Name + " " + sofa1.Price.ToString() + Environment.NewLine);
-                sum = sum + sofa1.Price;
-
-                if (sofa1 is Rakovina)
-                    rakovinaComboBox.Items.Add(sofa1.Name);
-                else if (sofa1 is Tumba)
-                    tumbaComboBox.Items.Add(sofa1.Name);
+                textBox1.AppendText(comp.Name + Environment.NewLine +
+                    "статус " + (comp.IsComplectFull() ? "полный" : "неполный") + Environment.NewLine +
+                    (comp.IsComplectCompatible() ? "все совместимо" : "детали из разных комплектов") + Environment.NewLine +
+                    "стоит " + comp.GetSumma().ToString() + " рублей" + Environment.NewLine + Environment.NewLine);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Furniture rak = new Furniture();
-            Furniture tumba = new Furniture();
-
-            foreach (Furniture sofa1 in furnitureList)
-            {
-                if (sofa1.Name == rakovinaComboBox.Text)
-                {
-                    rak = sofa1;
-                }
-                else if (sofa1.Name == tumbaComboBox.Text)
-                {
-                    tumba = sofa1;
-                }
-            }
-
-            if (rak.Width == tumba.Width)
-                MessageBox.Show("Совместимы");
-            else
-                MessageBox.Show("Несовместимы");
         }
     }
 }
