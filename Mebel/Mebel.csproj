@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Complect.cs" />
+    <Compile Include="Instruction.cs" />
     <Compile Include="Kran.cs" />
     <Compile Include="Shkaf.cs" />
     <Compile Include="Tumba.cs" />
